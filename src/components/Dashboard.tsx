@@ -7,6 +7,7 @@ import CallsTab from './tabs/CallsTab';
 import CalendarTab from './tabs/CalendarTab';
 import NotificationsTab from './tabs/NotificationsTab';
 import DocumentsTab from './tabs/DocumentsTab';
+import AnalyticsTab from './tabs/AnalyticsTab';
 
 interface DashboardProps {
   isAdmin: boolean;
@@ -25,7 +26,7 @@ function Dashboard({ isAdmin, language, onLanguageChange }: DashboardProps) {
     { id: 'notifications', icon: Bell, label: t.dashboard.notifications, component: NotificationsTab },
     { id: 'documents', icon: FileText, label: t.dashboard.documents, component: DocumentsTab },
     { id: 'history', icon: History, label: t.dashboard.history },
-    ...(isAdmin ? [{ id: 'analytics', icon: BarChart3, label: t.dashboard.analytics }] : []),
+    ...(isAdmin ? [{ id: 'analytics', icon: BarChart3, label: t.dashboard.analytics, component: AnalyticsTab }] : []),
   ];
 
   const ActiveComponent = tabs.find(tab => tab.id === activeTab)?.component;
