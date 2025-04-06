@@ -9,6 +9,9 @@ const options = {
     autoRefreshToken: true,
     persistSession: true,
     detectSessionInUrl: true
+  },
+  global: {
+    headers: { 'x-application-name': 'crm-cineden' }
   }
 };
 

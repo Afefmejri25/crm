@@ -7,6 +7,7 @@ import CallsTab from './tabs/CallsTab';
 import CalendarTab from './tabs/CalendarTab';
 import NotificationsTab from './tabs/NotificationsTab';
 import DocumentsTab from './tabs/DocumentsTab';
+import HistoryTab from './tabs/HistoryTab';
 import AnalyticsTab from './tabs/AnalyticsTab';
 
 interface DashboardProps {
