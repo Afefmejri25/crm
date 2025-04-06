@@ -1,3 +1,20 @@
+
+-- Profiles table
+CREATE TABLE IF NOT EXISTS profiles (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES auth.users(id) NOT NULL,
+  role text NOT NULL CHECK (role IN ('admin', 'agent')),
+  created_at timestamptz DEFAULT now()
+);
+
+ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Users can view their own profile"
+  ON profiles FOR SELECT
+  TO authenticated
+  USING (user_id = auth.uid());
+
+
 /*
   # Initial CRM Schema Setup
 
