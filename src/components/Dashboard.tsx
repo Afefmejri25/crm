@@ -33,7 +33,7 @@ function Dashboard({ isAdmin, language, onLanguageChange }: DashboardProps) {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <nav className="bg-white shadow-md">
+      <nav className="bg-white shadow-md backdrop-blur-sm bg-white/90 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
@@ -58,9 +58,9 @@ function Dashboard({ isAdmin, language, onLanguageChange }: DashboardProps) {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-md transition-colors whitespace-nowrap ${
+              className={`flex items-center space-x-2 px-4 py-2.5 rounded-lg transition-all duration-200 whitespace-nowrap transform hover:scale-[1.02] ${
                 activeTab === tab.id
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-blue-600 text-white shadow-md'
                   : 'bg-white text-gray-600 hover:bg-gray-50'
               }`}
             >
