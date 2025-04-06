@@ -1,11 +1,13 @@
+
 import React, { useEffect } from 'react';
 import { useAuthStore } from './store/auth';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import AgentDashboard from './components/AgentDashboard';
 import { Language } from './types';
 
 function App() {
-  const { user, isAdmin, loading, checkUser } = useAuthStore();
+  const { user, role, loading, checkUser } = useAuthStore();
   const [language, setLanguage] = React.useState<Language>('fr');
 
   useEffect(() => {
@@ -24,7 +26,11 @@ function App() {
     return <Login language={language} onLanguageChange={setLanguage} />;
   }
 
-  return <Dashboard isAdmin={isAdmin} language={language} onLanguageChange={setLanguage} />;
+  return role === 'admin' ? (
+    <Dashboard isAdmin={true} language={language} onLanguageChange={setLanguage} />
+  ) : (
+    <AgentDashboard language={language} onLanguageChange={setLanguage} />
+  );
 }
 
 export default App;

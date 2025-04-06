@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Plus } from 'lucide-react';
 import FullCalendar from '@fullcalendar/react';
@@ -45,7 +44,7 @@ export default function CalendarTab() {
           )
         `)
         .order('start_time');
-      
+
       if (error) throw error;
       setAppointments(data);
     } catch (error) {
@@ -61,9 +60,9 @@ export default function CalendarTab() {
       const { error } = await supabase
         .from('appointments')
         .insert([formData]);
-      
+
       if (error) throw error;
-      
+
       setIsModalOpen(false);
       setFormData({
         client_id: '',
@@ -131,7 +130,7 @@ export default function CalendarTab() {
                 <select
                   value={formData.client_id}
                   onChange={(e) => setFormData({ ...formData, client_id: e.target.value })}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="mt-1 block w-full max-w-xs rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                   required
                 >
                   <option value="">Select a client</option>
@@ -148,7 +147,7 @@ export default function CalendarTab() {
                   type="text"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="mt-1 block w-full max-w-xs rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                   required
                 />
               </div>
@@ -157,7 +156,7 @@ export default function CalendarTab() {
                 <textarea
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="mt-1 block w-full max-w-xs rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                   rows={3}
                 />
               </div>
@@ -168,7 +167,7 @@ export default function CalendarTab() {
                     type="datetime-local"
                     value={formData.start_time}
                     onChange={(e) => setFormData({ ...formData, start_time: e.target.value })}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    className="mt-1 block w-full max-w-xs rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -178,7 +177,7 @@ export default function CalendarTab() {
                     type="datetime-local"
                     value={formData.end_time}
                     onChange={(e) => setFormData({ ...formData, end_time: e.target.value })}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    className="mt-1 block w-full max-w-xs rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                     required
                   />
                 </div>

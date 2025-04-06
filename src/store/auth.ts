@@ -4,19 +4,23 @@ import { User } from '@supabase/supabase-js';
 
 interface AuthState {
   user: User | null;
-  isAdmin: boolean;
+  role: 'admin' | 'agent' | null;
   loading: boolean;
   error: string | null;
+  theme: 'light' | 'dark';
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
   checkUser: () => Promise<void>;
+  toggleTheme: () => void;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
-  isAdmin: false,
+  role: null,
   loading: true,
   error: null,
+  theme: 'light',
+  toggleTheme: () => set(state => ({ theme: state.theme === 'light' ? 'dark' : 'light' })),
   signIn: async (email: string, password: string) => {
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
