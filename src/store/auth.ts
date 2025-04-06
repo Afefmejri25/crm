@@ -32,6 +32,8 @@ export const useAuthStore = create<AuthState>((set) => ({
       });
       if (error) throw error;
 
+      if (!data.user) throw new Error('No user data received');
+
       // Fetch user role from profiles table
       const { data: profileData, error: profileError } = await supabase
         .from('profiles')
@@ -44,7 +46,8 @@ export const useAuthStore = create<AuthState>((set) => ({
       set({ 
         user: data.user,
         role: profileData.role as 'admin' | 'agent',
-        session: data.session // added session data
+        session: data.session,
+        loading: false
       });
     } catch (error) {
       set({ error: (error as Error).message });
