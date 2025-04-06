@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { supabase } from '../lib/supabase';
-import { User } from '@supabase/supabase-js';
+import { User, Session } from '@supabase/supabase-js';
 
 interface AuthState {
   user: User | null;
@@ -8,6 +8,7 @@ interface AuthState {
   loading: boolean;
   error: string | null;
   theme: 'light' | 'dark';
+  session: Session | null; // Added session field
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
   checkUser: () => Promise<void>;
@@ -20,6 +21,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   loading: true,
   error: null,
   theme: 'light',
+  session: null, // Initialize session to null
   toggleTheme: () => set(state => ({ theme: state.theme === 'light' ? 'dark' : 'light' })),
   signIn: async (email: string, password: string) => {
     set({ loading: true, error: null });
@@ -41,7 +43,8 @@ export const useAuthStore = create<AuthState>((set) => ({
 
       set({ 
         user: data.user,
-        role: profileData.role as 'admin' | 'agent'
+        role: profileData.role as 'admin' | 'agent',
+        session: data.session // added session data
       });
     } catch (error) {
       set({ error: (error as Error).message });
@@ -53,16 +56,17 @@ export const useAuthStore = create<AuthState>((set) => ({
     try {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
-      set({ user: null, role: null, error: null });
+      set({ user: null, role: null, error: null, session: null }); // added session
     } catch (error) {
       set({ error: (error as Error).message });
     }
   },
   checkUser: async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { user, session } } = await supabase.auth.getUser(); //get session here
       set({
         user,
+        session, //added session
         role: null, // Initialize role to null until fetched
         loading: false,
         error: null,
