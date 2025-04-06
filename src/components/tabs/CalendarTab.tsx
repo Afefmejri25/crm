@@ -1,9 +1,11 @@
+
 import React, { useEffect, useState } from 'react';
-import { Plus, Clock } from 'lucide-react';
-import { format, parseISO, isToday, isTomorrow } from 'date-fns';
+import { Plus } from 'lucide-react';
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
 import { supabase } from '../../lib/supabase';
-import { Appointment } from '../../types/crm';
 import { useClientsStore } from '../../store/clients';
+import { Appointment } from '../../types/crm';
 
 interface AppointmentFormData {
   client_id: string;
@@ -76,15 +78,13 @@ export default function CalendarTab() {
     }
   };
 
-  const getAppointmentTiming = (date: string) => {
-    const appointmentDate = parseISO(date);
-    if (isToday(appointmentDate)) {
-      return 'Today';
-    } else if (isTomorrow(appointmentDate)) {
-      return 'Tomorrow';
-    }
-    return format(appointmentDate, 'MMM d, yyyy');
-  };
+  const calendarEvents = appointments.map(appointment => ({
+    id: appointment.id,
+    title: `${appointment.title} - ${(appointment as any).clients?.company_name}`,
+    start: appointment.start_time,
+    end: appointment.end_time,
+    description: appointment.description,
+  }));
 
   if (loading) {
     return (
@@ -107,33 +107,18 @@ export default function CalendarTab() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {appointments.map((appointment) => (
-          <div key={appointment.id} className="bg-white rounded-lg shadow-md p-4 space-y-3">
-            <div className="flex justify-between items-start">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800">{appointment.title}</h3>
-                <p className="text-sm text-gray-600">
-                  {(appointment as any).clients?.company_name}
-                </p>
-              </div>
-              <div className="flex items-center text-blue-600">
-                <Clock className="w-4 h-4 mr-1" />
-                <span className="text-sm">
-                  {format(parseISO(appointment.start_time), 'HH:mm')}
-                </span>
-              </div>
-            </div>
-
-            {appointment.description && (
-              <p className="text-sm text-gray-600">{appointment.description}</p>
-            )}
-
-            <div className="text-xs text-gray-500">
-              {getAppointmentTiming(appointment.start_time)}
-            </div>
-          </div>
-        ))}
+      <div className="bg-white p-6 rounded-lg shadow">
+        <FullCalendar
+          plugins={[dayGridPlugin]}
+          initialView="dayGridMonth"
+          events={calendarEvents}
+          height="auto"
+          headerToolbar={{
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,dayGridWeek,dayGridDay'
+          }}
+        />
       </div>
 
       {isModalOpen && (
@@ -198,7 +183,7 @@ export default function CalendarTab() {
                   />
                 </div>
               </div>
-              <div className="flex justify-end gap-4 mt-6">
+              <div className="flex justify-end gap-4">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}

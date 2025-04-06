@@ -25,7 +25,7 @@ function Dashboard({ isAdmin, language, onLanguageChange }: DashboardProps) {
     { id: 'calendar', icon: Calendar, label: t.dashboard.calendar, component: CalendarTab },
     { id: 'notifications', icon: Bell, label: t.dashboard.notifications, component: NotificationsTab },
     { id: 'documents', icon: FileText, label: t.dashboard.documents, component: DocumentsTab },
-    { id: 'history', icon: History, label: t.dashboard.history },
+    { id: 'history', icon: History, label: t.dashboard.history, component: HistoryTab },
     ...(isAdmin ? [{ id: 'analytics', icon: BarChart3, label: t.dashboard.analytics, component: AnalyticsTab }] : []),
   ];
 
