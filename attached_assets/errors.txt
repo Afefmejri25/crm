@@ -1,0 +1,126 @@
+client:495 [vite] connecting...
+client:614 [vite] connected.
+@supabase_supabase-js.js?v=55c7848e:4309 
+            
+            
+           GET https://kxnrasgksvooetyougyg.supabase.co/auth/v1/user 403 (Forbidden)
+(anonymous) @ @supabase_supabase-js.js?v=55c7848e:4309
+_handleRequest2 @ @supabase_supabase-js.js?v=55c7848e:4558
+_request @ @supabase_supabase-js.js?v=55c7848e:4548
+(anonymous) @ @supabase_supabase-js.js?v=55c7848e:5816
+_useSession @ @supabase_supabase-js.js?v=55c7848e:5723
+await in _useSession
+_getUser @ @supabase_supabase-js.js?v=55c7848e:5807
+(anonymous) @ @supabase_supabase-js.js?v=55c7848e:5794
+(anonymous) @ @supabase_supabase-js.js?v=55c7848e:5690
+(anonymous) @ @supabase_supabase-js.js?v=55c7848e:4974
+localhost/:1 [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) <input type=​"password" class=​"input-field" required value>​
+@supabase_supabase-js.js?v=55c7848e:4309 
+            
+            
+           GET https://kxnrasgksvooetyougyg.supabase.co/auth/v1/user 403 (Forbidden)
+(anonymous) @ @supabase_supabase-js.js?v=55c7848e:4309
+_handleRequest2 @ @supabase_supabase-js.js?v=55c7848e:4558
+_request @ @supabase_supabase-js.js?v=55c7848e:4548
+(anonymous) @ @supabase_supabase-js.js?v=55c7848e:5816
+_useSession @ @supabase_supabase-js.js?v=55c7848e:5723
+await in _useSession
+_getUser @ @supabase_supabase-js.js?v=55c7848e:5807
+(anonymous) @ @supabase_supabase-js.js?v=55c7848e:5794
+(anonymous) @ @supabase_supabase-js.js?v=55c7848e:5690
+(anonymous) @ @supabase_supabase-js.js?v=55c7848e:4974
+Dashboard.tsx:28 Uncaught ReferenceError: HistoryTab is not defined
+    at Dashboard (Dashboard.tsx:28:76)
+    at renderWithHooks (chunk-3IHV7RO6.js?v=7f31ea69:11548:26)
+    at mountIndeterminateComponent (chunk-3IHV7RO6.js?v=7f31ea69:14926:21)
+    at beginWork (chunk-3IHV7RO6.js?v=7f31ea69:15914:22)
+    at HTMLUnknownElement.callCallback2 (chunk-3IHV7RO6.js?v=7f31ea69:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-3IHV7RO6.js?v=7f31ea69:3699:24)
+    at invokeGuardedCallback (chunk-3IHV7RO6.js?v=7f31ea69:3733:39)
+    at beginWork$1 (chunk-3IHV7RO6.js?v=7f31ea69:19765:15)
+    at performUnitOfWork (chunk-3IHV7RO6.js?v=7f31ea69:19198:20)
+    at workLoopSync (chunk-3IHV7RO6.js?v=7f31ea69:19137:13)
+Dashboard @ Dashboard.tsx:28
+renderWithHooks @ chunk-3IHV7RO6.js?v=7f31ea69:11548
+mountIndeterminateComponent @ chunk-3IHV7RO6.js?v=7f31ea69:14926
+beginWork @ chunk-3IHV7RO6.js?v=7f31ea69:15914
+callCallback2 @ chunk-3IHV7RO6.js?v=7f31ea69:3674
+invokeGuardedCallbackDev @ chunk-3IHV7RO6.js?v=7f31ea69:3699
+invokeGuardedCallback @ chunk-3IHV7RO6.js?v=7f31ea69:3733
+beginWork$1 @ chunk-3IHV7RO6.js?v=7f31ea69:19765
+performUnitOfWork @ chunk-3IHV7RO6.js?v=7f31ea69:19198
+workLoopSync @ chunk-3IHV7RO6.js?v=7f31ea69:19137
+renderRootSync @ chunk-3IHV7RO6.js?v=7f31ea69:19116
+performSyncWorkOnRoot @ chunk-3IHV7RO6.js?v=7f31ea69:18874
+flushSyncCallbacks @ chunk-3IHV7RO6.js?v=7f31ea69:9119
+(anonymous) @ chunk-3IHV7RO6.js?v=7f31ea69:18627
+Dashboard.tsx:28 Uncaught ReferenceError: HistoryTab is not defined
+    at Dashboard (Dashboard.tsx:28:76)
+    at renderWithHooks (chunk-3IHV7RO6.js?v=7f31ea69:11548:26)
+    at mountIndeterminateComponent (chunk-3IHV7RO6.js?v=7f31ea69:14926:21)
+    at beginWork (chunk-3IHV7RO6.js?v=7f31ea69:15914:22)
+    at HTMLUnknownElement.callCallback2 (chunk-3IHV7RO6.js?v=7f31ea69:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-3IHV7RO6.js?v=7f31ea69:3699:24)
+    at invokeGuardedCallback (chunk-3IHV7RO6.js?v=7f31ea69:3733:39)
+    at beginWork$1 (chunk-3IHV7RO6.js?v=7f31ea69:19765:15)
+    at performUnitOfWork (chunk-3IHV7RO6.js?v=7f31ea69:19198:20)
+    at workLoopSync (chunk-3IHV7RO6.js?v=7f31ea69:19137:13)
+Dashboard @ Dashboard.tsx:28
+renderWithHooks @ chunk-3IHV7RO6.js?v=7f31ea69:11548
+mountIndeterminateComponent @ chunk-3IHV7RO6.js?v=7f31ea69:14926
+beginWork @ chunk-3IHV7RO6.js?v=7f31ea69:15914
+callCallback2 @ chunk-3IHV7RO6.js?v=7f31ea69:3674
+invokeGuardedCallbackDev @ chunk-3IHV7RO6.js?v=7f31ea69:3699
+invokeGuardedCallback @ chunk-3IHV7RO6.js?v=7f31ea69:3733
+beginWork$1 @ chunk-3IHV7RO6.js?v=7f31ea69:19765
+performUnitOfWork @ chunk-3IHV7RO6.js?v=7f31ea69:19198
+workLoopSync @ chunk-3IHV7RO6.js?v=7f31ea69:19137
+renderRootSync @ chunk-3IHV7RO6.js?v=7f31ea69:19116
+recoverFromConcurrentError @ chunk-3IHV7RO6.js?v=7f31ea69:18736
+performSyncWorkOnRoot @ chunk-3IHV7RO6.js?v=7f31ea69:18879
+flushSyncCallbacks @ chunk-3IHV7RO6.js?v=7f31ea69:9119
+(anonymous) @ chunk-3IHV7RO6.js?v=7f31ea69:18627
+hook.js:608 The above error occurred in the <Dashboard> component:
+
+    at Dashboard (http://localhost:5173/src/components/Dashboard.tsx:27:22)
+    at App (http://localhost:5173/src/App.tsx:24:49)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+overrideMethod @ hook.js:608
+logCapturedError @ chunk-3IHV7RO6.js?v=7f31ea69:14032
+update.callback @ chunk-3IHV7RO6.js?v=7f31ea69:14052
+callCallback @ chunk-3IHV7RO6.js?v=7f31ea69:11248
+commitUpdateQueue @ chunk-3IHV7RO6.js?v=7f31ea69:11265
+commitLayoutEffectOnFiber @ chunk-3IHV7RO6.js?v=7f31ea69:17093
+commitLayoutMountEffects_complete @ chunk-3IHV7RO6.js?v=7f31ea69:17980
+commitLayoutEffects_begin @ chunk-3IHV7RO6.js?v=7f31ea69:17969
+commitLayoutEffects @ chunk-3IHV7RO6.js?v=7f31ea69:17920
+commitRootImpl @ chunk-3IHV7RO6.js?v=7f31ea69:19353
+commitRoot @ chunk-3IHV7RO6.js?v=7f31ea69:19277
+performSyncWorkOnRoot @ chunk-3IHV7RO6.js?v=7f31ea69:18895
+flushSyncCallbacks @ chunk-3IHV7RO6.js?v=7f31ea69:9119
+(anonymous) @ chunk-3IHV7RO6.js?v=7f31ea69:18627
+chunk-3IHV7RO6.js?v=7f31ea69:9129 Uncaught ReferenceError: HistoryTab is not defined
+    at Dashboard (Dashboard.tsx:28:76)
+    at renderWithHooks (chunk-3IHV7RO6.js?v=7f31ea69:11548:26)
+    at mountIndeterminateComponent (chunk-3IHV7RO6.js?v=7f31ea69:14926:21)
+    at beginWork (chunk-3IHV7RO6.js?v=7f31ea69:15914:22)
+    at beginWork$1 (chunk-3IHV7RO6.js?v=7f31ea69:19753:22)
+    at performUnitOfWork (chunk-3IHV7RO6.js?v=7f31ea69:19198:20)
+    at workLoopSync (chunk-3IHV7RO6.js?v=7f31ea69:19137:13)
+    at renderRootSync (chunk-3IHV7RO6.js?v=7f31ea69:19116:15)
+    at recoverFromConcurrentError (chunk-3IHV7RO6.js?v=7f31ea69:18736:28)
+    at performSyncWorkOnRoot (chunk-3IHV7RO6.js?v=7f31ea69:18879:28)
+Dashboard @ Dashboard.tsx:28
+renderWithHooks @ chunk-3IHV7RO6.js?v=7f31ea69:11548
+mountIndeterminateComponent @ chunk-3IHV7RO6.js?v=7f31ea69:14926
+beginWork @ chunk-3IHV7RO6.js?v=7f31ea69:15914
+beginWork$1 @ chunk-3IHV7RO6.js?v=7f31ea69:19753
+performUnitOfWork @ chunk-3IHV7RO6.js?v=7f31ea69:19198
+workLoopSync @ chunk-3IHV7RO6.js?v=7f31ea69:19137
+renderRootSync @ chunk-3IHV7RO6.js?v=7f31ea69:19116
+recoverFromConcurrentError @ chunk-3IHV7RO6.js?v=7f31ea69:18736
+performSyncWorkOnRoot @ chunk-3IHV7RO6.js?v=7f31ea69:18879
+flushSyncCallbacks @ chunk-3IHV7RO6.js?v=7f31ea69:9119
+(anonymous) @ chunk-3IHV7RO6.js?v=7f31ea69:18627
