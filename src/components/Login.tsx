@@ -78,6 +78,7 @@ function Login({ language, onLanguageChange }: LoginProps) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="input-field"
+              autoComplete="current-password"
               required
             />
           </div>
