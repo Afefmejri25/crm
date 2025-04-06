@@ -17,6 +17,21 @@ interface AgentDashboardProps {
 }
 
 export default function AgentDashboard({ language, onLanguageChange }: AgentDashboardProps) {
+  const [error, setError] = useState<string | null>(null);
+
+  if (error) {
+    return (
+      <div className="p-4 bg-red-50 text-red-700 rounded-md">
+        <p>Error: {error}</p>
+        <button 
+          onClick={() => setError(null)}
+          className="mt-2 text-sm text-red-600 hover:text-red-800"
+        >
+          Dismiss
+        </button>
+      </div>
+    );
+  }
   const [activeTab, setActiveTab] = useState('clients');
   const { theme, toggleTheme } = useAuthStore();
   const t = translations[language];

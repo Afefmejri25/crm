@@ -61,3 +61,32 @@ export interface Document {
   shared_by: string;
   created_at: string;
 }
+export interface Call {
+  id: string;
+  client_id: string;
+  agent_id: string;
+  duration: number;
+  status: 'success' | 'callback' | 'no_answer';
+  notes: string;
+  created_at: string;
+}
+
+export interface Document {
+  id: string;
+  title: string;
+  description: string;
+  file_url: string;
+  file_type: string;
+  shared_by: string;
+  created_at: string;
+}
+
+export interface Notification {
+  id: string;
+  title: string;
+  message: string;
+  recipient_id: string;
+  is_read: boolean;
+  created_at: string;
+  created_by: string;
+}

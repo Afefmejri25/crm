@@ -113,7 +113,6 @@ export default function CalendarTab() {
           plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]} // Added plugins
           initialView="dayGridMonth"
           events={calendarEvents}
-          height="auto"
           height={400} // Reduced height
           headerToolbar={{
             left: 'prev,next today',
