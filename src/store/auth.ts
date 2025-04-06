@@ -22,29 +22,38 @@ export const useAuthStore = create<AuthState>((set) => ({
   theme: 'light',
   toggleTheme: () => set(state => ({ theme: state.theme === 'light' ? 'dark' : 'light' })),
   signIn: async (email: string, password: string) => {
+    set({ loading: true, error: null });
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
-      
       if (error) throw error;
-      
-      set({
+
+      // Fetch user role from profiles table
+      const { data: profileData, error: profileError } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', data.user.id)
+        .single();
+
+      if (profileError) throw profileError;
+
+      set({ 
         user: data.user,
-        isAdmin: data.user?.email?.includes('admin') || false,
-        error: null,
+        role: profileData.role as 'admin' | 'agent'
       });
     } catch (error) {
       set({ error: (error as Error).message });
-      throw error;
+    } finally {
+      set({ loading: false });
     }
   },
   signOut: async () => {
     try {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
-      set({ user: null, isAdmin: false, error: null });
+      set({ user: null, role: null, error: null });
     } catch (error) {
       set({ error: (error as Error).message });
     }
@@ -54,7 +63,7 @@ export const useAuthStore = create<AuthState>((set) => ({
       const { data: { user } } = await supabase.auth.getUser();
       set({
         user,
-        isAdmin: user?.email?.includes('admin') || false,
+        role: null, // Initialize role to null until fetched
         loading: false,
         error: null,
       });

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Plus } from 'lucide-react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction'; // Added for better interaction
+import timeGridPlugin from '@fullcalendar/timegrid'; // Added for time grid view
 import { supabase } from '../../lib/supabase';
 import { useClientsStore } from '../../store/clients';
 import { Appointment } from '../../types/crm';
@@ -108,14 +110,15 @@ export default function CalendarTab() {
 
       <div className="bg-white p-6 rounded-lg shadow">
         <FullCalendar
-          plugins={[dayGridPlugin]}
+          plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]} // Added plugins
           initialView="dayGridMonth"
           events={calendarEvents}
           height="auto"
+          height={400} // Reduced height
           headerToolbar={{
             left: 'prev,next today',
             center: 'title',
-            right: 'dayGridMonth,dayGridWeek,dayGridDay'
+            right: 'dayGridMonth,timeGridWeek,dayGridDay' // Added timeGridWeek
           }}
         />
       </div>
