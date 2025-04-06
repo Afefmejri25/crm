@@ -36,6 +36,15 @@ export default function AgentDashboard({ language, onLanguageChange }: AgentDash
   const { theme, toggleTheme } = useAuthStore();
   const t = translations[language];
 
+  const { role } = useAuthStore();
+  
+  // Redirect if somehow an admin accesses this component
+  useEffect(() => {
+    if (role === 'admin') {
+      window.location.href = '/';
+    }
+  }, [role]);
+
   const tabs = [
     { id: 'clients', icon: Users, label: t.dashboard.clients, component: ClientsTab },
     { id: 'calls', icon: Phone, label: t.dashboard.calls, component: CallsTab },

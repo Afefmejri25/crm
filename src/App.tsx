@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useAuthStore } from './store/auth';
 import Login from './components/Login';
@@ -8,7 +7,7 @@ import { Language } from './types';
 
 function App() {
   const { user, role, loading, checkUser, session } = useAuthStore();
-  const [language, setLanguage] = React.useState<Language>('fr');
+  const [language, setLanguage] = useState<Language>('fr');
   const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
@@ -17,7 +16,7 @@ function App() {
       setInitialized(true);
     };
     init();
-  }, []);
+  }, [checkUser]);
 
   if (!initialized || loading) {
     return (
@@ -28,18 +27,6 @@ function App() {
   }
 
   if (!session || !user) {
-    return <Login language={language} onLanguageChange={setLanguage} />;
-  }
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-      </div>
-    );
-  }
-
-  if (!user) {
     return <Login language={language} onLanguageChange={setLanguage} />;
   }
 

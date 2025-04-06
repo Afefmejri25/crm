@@ -63,14 +63,34 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
   checkUser: async () => {
     try {
-      const { data: { user, session } } = await supabase.auth.getUser(); //get session here
-      set({
-        user,
-        session, //added session
-        role: null, // Initialize role to null until fetched
-        loading: false,
-        error: null,
-      });
+      const { data: { user, session } } = await supabase.auth.getUser();
+      
+      if (user) {
+        // Fetch user role from profiles
+        const { data: profileData, error: profileError } = await supabase
+          .from('profiles')
+          .select('role')
+          .eq('id', user.id)
+          .single();
+
+        if (profileError) throw profileError;
+
+        set({
+          user,
+          session,
+          role: profileData.role as 'admin' | 'agent',
+          loading: false,
+          error: null,
+        });
+      } else {
+        set({
+          user: null,
+          session: null,
+          role: null,
+          loading: false,
+          error: null,
+        });
+      }
     } catch (error) {
       set({ error: (error as Error).message, loading: false });
     }
