@@ -83,9 +83,11 @@ export default function DocumentsTab() {
         description: '',
         file: null,
       });
-      fetchDocuments();
+      await fetchDocuments();
     } catch (error) {
       console.error('Error uploading document:', error);
+      // Show error to user
+      alert('Error uploading document: ' + (error as Error).message);
     }
   };
 
